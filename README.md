@@ -42,31 +42,7 @@ console.log(config.example, config.dummy.test);
 ```
 
 #### Typesafe :
-```javascript
-import { Configuration, Merger } from '@nod/configuration';
-import { param, returns, Optional as optional } from 'decorate-this';
-
-class ExampleConfiguration extends Configuration {
-  //add some default properties
-  example = true;
-  dummy = 'should check this for string';
-}
-
-class ExampleMerger extends Merger {
-
-  @param(optional({
-    example : Boolean,
-    dummy   : optional(String)
-  }))
-  @returns(Object)
-  setOptions(options = {}) {
-    return super.setOptions(options);
-  }
-
-}
-
-let config = new ExampleConfiguration({}, ExampleMerger);
-```
+See [Test](./src/test) for full typesafe usage example.
 
 
 ### Build and develop:
